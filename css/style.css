@@ -1,0 +1,586 @@
+*,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+@font-face {
+    font-family: gothamrounded-bold;
+    src: url(../fonts/GothamRoundedBold.woff);
+}
+@font-face {
+    font-family: gothamrounded-book;
+    src: url(../fonts/Gotham\ Rounded\ Book.woff);
+}
+@font-face {
+    font-family: gothamrounded-medium;
+    src: url(../fonts/Gotham\ Rounded\ Medium.woff);
+}
+body{
+    font-family: gothamrounded-bold, sans-serif;
+    font-size: 12px;
+}
+
+.wrapper {
+    overflow: hidden;
+}
+.mainScreen {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../img/bg1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.menu {
+    margin: 35px auto;
+}
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.item li{
+    list-style: none;
+    padding: 0 40px;
+    position: relative;
+}
+
+
+.item li a{
+    font-family: gothamrounded-bold;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    letter-spacing: 5px;
+}
+.icon{
+    display: none;
+    position: absolute;
+}
+
+@media (max-width: 820px){
+    .mainScreen{
+        background-size:auto;
+    }
+    .menu{
+        background-color: #4d4959;
+        opacity: 0.8;
+        position: absolute;
+        top: -100%;
+        width: 100%;
+        z-index: 10;
+        transition: all 0.8s;
+        margin-top: 0;
+        padding-top: 40px;
+    }
+
+    .menu.active{
+        top: 0;
+    }
+
+    .item{
+        flex-direction: column;
+    }
+
+    .item li a{
+        color: #eaeaf2;
+        font-size: 26px;
+    }
+
+    .item li{
+        padding-bottom: 40px;
+    }
+    .item .logo{
+        order: -1;
+    }
+
+    .item li::after{
+        right: 50%;
+        top: 75%;
+    }
+
+    .item li:nth-child(2)::after,
+    .item li:nth-child(3)::after{
+    display: inline-block;}
+
+    .icon{
+        display: block;
+        width: 45px;
+        height: 45px;
+        top: 40px;
+        right: 40px;
+        z-index: 15;
+    }
+
+    .icon::after,
+    .icon::before{
+        content: "";
+        transition: all 0.5s;
+    }
+
+    .icon span,
+    .icon::before,
+    .icon::after{
+        width: 100%;
+        height: 15%;
+        background-color: #4d4959;
+        position: absolute;
+    }
+
+    .icon::before{
+        top: 0;
+    }
+    .icon::after{
+        bottom: 0;
+    }
+
+    .icon span{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .icon.active span{
+        display: none;
+    }
+
+    .icon.active::after{
+        transform: rotate(45deg);
+        top: 50%;
+    }
+
+    .icon.active::before{
+        transform: rotate(-45deg);
+        top: 50%;
+    }
+
+    .menu.active + .icon::before,
+    .menu.active + .icon::after{
+        background-color: #fff;
+    }
+}
+.centerItem{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.centerItem > *{
+    text-align: center;
+}
+.title{
+    font-family: gothamrounded-bold;
+    font-size: 36px;
+    text-transform: uppercase;
+    color:#FFFFFF;
+}
+.titleText{
+    font-family: gothamrounded-bold;
+    font-size: 16px;
+    margin-top: 13px;
+    text-transform: lowercase;
+    color:#FFFFFF;
+}
+.startButton{
+    margin-top: 26px;
+    cursor: pointer;
+    width: 166px;
+    height: 50px;
+    background-color: rgba(22, 160, 133, 1);
+    border-radius: 3%;
+}
+.startText{
+    font-family: gothamrounded-bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    color:#FFFFFF;
+    text-align: center;
+    line-height: 50px;
+}  
+.lowMenu{
+    display: inline-block;
+    position: absolute;
+    bottom:25px;
+}
+.lowItem{
+    list-style: none;
+    display: flex;
+}
+.lowItem2{
+    margin: 0 15px 0 15px;
+}
+.blockText{
+    font-family: gothamrounded-book;
+    color: #373737;
+}
+/*//////////////////////////second screen///////////////*/
+.secondScreen{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 1280px;
+    margin: auto;
+    width:100%;
+    height:494px;
+}
+
+.secondBlock{
+    width: 428px;
+    margin-left: 128px;
+}
+.secondBlockTitle{
+    font-size: 18px;
+    color:#16A085;
+}
+.secondBlockText{
+    margin-top: 49px;
+    font-size: 12px;
+}
+.secondImg img{
+    transform: scale(-1,1);
+    width:400px;
+    height:400px;
+    object-fit: fill;
+}
+.secondButton{
+    margin-top: 47px;
+    cursor: pointer;
+    width: 193px;
+    height: 52px;
+    background-color: rgba(22, 160, 133, 1);
+    border-radius: 3%;
+}
+@media (max-width: 820px){
+    .secondScreen{
+        margin-top: 15vh;
+        flex-direction: column;
+    }
+    .secondBlock{
+        margin-left: 0;
+    }
+    .secondImg{
+        margin-left: 0;
+    }
+}
+/*////////////////////THIRDSCREEN//////////////////*/
+.thirdScreen{
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 1280px;
+    width:100%;
+    height:558px;
+}
+
+.thirdImg img{
+    max-width: 315px;
+    height:617px;
+    margin-left: 152px;
+    margin-top: 146px;
+    object-fit: fill;
+}
+
+.thirdBlock{
+    display: flex;
+    flex-direction: column;
+    max-width: 428px;
+    margin-left: 330px;
+}
+.thirdBlockTitle{
+    margin-bottom: 44px;
+    font-size: 18px;
+    color:#16A085;
+}
+.thirdButton{
+    cursor: pointer;
+    width: 193px;
+    height: 52px;
+    background-color: rgba(22, 160, 133, 1);
+    border-radius: 3%;
+    margin-top: 42px;
+}
+.thirdBlockNav{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 44px;
+    margin-top: 44px;
+}
+.arrows{
+    display: flex;
+}
+.leftArrow, .rightArrow{
+    cursor: pointer;
+    width:12px;
+    height: 17px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.leftArrow{
+    background-image: url(../img/leftArrow.png);
+}
+.rightArrow{
+    background-image: url(../img/rightArrow.png);
+    margin-left: 20px;
+}
+@media (max-width: 820px){
+    .thirdScreen{
+        margin-top: 30vh;
+        flex-direction: column;
+        overflow:visible;
+    }
+    .thirdImg img{
+        margin-left: 0;
+    }
+    .thirdBlock{
+        margin-left: 0;
+    }
+}
+/*/////////////////FOURTHSCREEN///////////////*/
+.fourthScreen{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    max-width: 1022px;
+    margin: auto;
+    width:100%;
+    height:494px;
+}
+.fourthScreenNav{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 9px;
+}
+.fourthContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.fourthBlock{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 175px;
+}
+.fourthBlockTitle{
+    text-transform: uppercase;
+}
+.fourthLogo{
+    margin:0 auto 31px auto;
+    width: 59px;
+    height: 55px;
+    background-image: url(../img/logocyan.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.fourthImg1{
+    background-image: url(../img/car.png);
+    width:370px;
+    height: 244px;
+}
+.fourthImg2{
+    background-image: url(../img/leaves.png);
+    width:371px;
+    height: 244px;
+}
+@media (max-width: 820px){
+    .fourthScreen{
+        margin: auto;
+        margin-top:50vh;
+        width: 100%;
+    }
+    .fourthContent{
+        flex-direction: column;
+    }
+    .fourthContent > *{
+        margin: auto;
+    }
+}
+/*//////////////FIFTHYSCREEN////////////*/
+.fifthyScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height:790px;
+    width: 100%;
+    background-image: url(../img/bg2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.fifthyBlock{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.reverseForm{
+    display: flex;
+    flex-flow: column-reverse;
+}
+.form{
+    display: flex;
+    flex-direction: row;
+}
+.fitfthyTitle{
+    text-align: center;
+    font-family: gothamrounded-bold;
+    font-size: 36px;
+    text-transform: uppercase;
+    color:#FFFFFF;
+}
+.e_mail{
+    border-radius: 3% 0 0 3%;
+    width:281px;
+    height:61px;
+}
+.subButton{
+    border-radius: 0 3% 3% 0;
+    cursor: pointer;
+    width: 64px;
+    height: 61px;
+    background-color: rgba(22, 160, 133, 1);
+    background-image: url(../img/fa-check.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+label{
+    position: absolute;
+    margin: 0 0 21px 22px;
+    font-size: 16px;
+    font-family: gothamrounded-medium;
+    pointer-events: none;
+    color: #373737;
+}
+input:focus + label{
+    display: none;
+}
+@media (max-width: 820px){
+    .fifthyScreen{
+        margin-top: 15vh
+    }
+}
+/*////////////////SIXTHSCREEN/////////////////////*/
+.sixthScreen{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(245, 246, 247, 1);
+    align-items: center;
+    justify-content: center;
+    max-width: 1280px;
+    margin: auto;
+    width:100%;
+    height:527px;
+}
+.sixthBlockTitle{
+    font-family: gothamrounded-bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color:#373737;
+    text-align: center;
+    line-height: 16px;
+}
+.sixthBlock{
+    text-align: center;
+    width:840px;
+}
+.sixthButton{
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 297px;
+    height: 57px;
+    background-color: rgba(26, 188, 156, 1);
+    border-radius: 3% 3% 3% 3%;
+    margin-top: 42px;
+}
+.buttons{
+
+    width:619px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.sixButtonText{
+    height: 100%;
+    float: left;
+    width:80%;
+}
+.sixButtonImg{
+    border-radius: 0 3% 3% 0;
+    display: flex;
+    background-color: rgba(22, 160, 133, 1);
+    float: right;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 820px){
+    .buttons{
+        flex-direction: column;
+    }
+    .sixthBlock{
+        width: 100%;
+    }
+}
+/*///////////////////FOOTER/////////////*/
+footer{
+    font-family: gothamrounded-bold;
+    font-size: 14px;
+    color: #373737;
+    text-decoration: none;
+    height:130px;
+    width: 100% ;
+}
+.footWrapper{
+    display: flex;
+    margin-left: 12%;
+    justify-content: center;
+    flex-direction: column;
+}
+.footMenu{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+.footMenu a{
+    color:#373737;
+    text-decoration: none;
+    padding: 0 1% 0 1%;
+}
+.footMenu :nth-child(2){
+    border-right: 2px solid rgba(26, 188, 156, 1);
+    border-left: 2px solid rgba(26, 188, 156, 1);
+}
+.copyright{
+    margin-top: 23px;
+    padding-left: 1%;
+}
